@@ -2,22 +2,26 @@
 Having fun with the Marvel API
 
 * Next.js
-   * to gain exp
+    * to gain exp
 * React
-   * common, popular
+    * common, popular
 * Typescript
-   * to refine skill set
+    * to get more practice
 * Bulma + Custom SCSS + BEM
-   * Bulma for semantics, responsive classes
-   * Custom SCSS
-   * BEM naming is the best
+    * Bulma for semantics, responsive classes
+    * Custom SCSS
+    * BEM naming is the best
+* **Why not TailwindCSS?**
+    * semantics really important to me, in general I dislike verbosity of Tailwind
+    * for this project only want to use responsive features
+    * I like Sass better, has been a pain to configure IDE for Tailwind nesting
 
-Tech Specifications:
-Marvel API: 
-GraphQL: https://api.marvelql.com/ 
-REST: https://developer.marvel.com/docs
+## Tech Specifications
+* Marvel API: 
+* GraphQL: https://api.marvelql.com/ 
+* REST: https://developer.marvel.com/docs
 
-Page
+## Component Notes
 * Navigation Component
 * Hero Component
     * Logo
