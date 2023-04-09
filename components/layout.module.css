@@ -1,15 +1,19 @@
 .container {
-  max-width: 36rem;
-  padding: 0 1rem;
-  margin: 3rem auto 6rem;
+  margin: 0;
 }
 
 .header {
+  width: 100%;
+  z-index: 2;
+  position: absolute; 
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+}
+
+.header > * {
+  flex: 1 1 auto;
 }
 
 .backToHome {
-  margin: 3rem 0 0;
+  margin: 0;
 }
