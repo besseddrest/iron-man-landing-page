@@ -32,11 +32,17 @@ export default function Layout({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        <h1>Iron Man SVG</h1>
+        <div className="hero-logo__wrap">
+          <Image
+            src="images/logo-iron-man.svg"
+            width={418}
+            height={98}
+            alt="Iron Man Logo" />
+        </div>
         <nav className="menu__wrapper">
           <ul className="menu">
             <li className="menu__item"><Link href="/sign-in">Sign In</Link></li>
-            <li className="menu__item--button"><Link href="/sign-up">Sign Up</Link></li>
+            <li className="menu__item menu__item--button button"><Link href="/sign-up">Sign Up</Link></li>
           </ul>
         </nav>
       </header>

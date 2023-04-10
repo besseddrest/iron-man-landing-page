@@ -8,6 +8,7 @@
   position: absolute; 
   display: flex;
   justify-content: space-between;
+  padding: 54px 80px;
 }
 
 .header > * {
