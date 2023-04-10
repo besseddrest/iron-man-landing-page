@@ -1,20 +1,3 @@
 .container {
   margin: 0;
 }
-
-.header {
-  width: 100%;
-  z-index: 2;
-  position: absolute; 
-  display: flex;
-  justify-content: space-between;
-  padding: 54px 80px;
-}
-
-.header > * {
-  flex: 1 1 auto;
-}
-
-.backToHome {
-  margin: 0;
-}

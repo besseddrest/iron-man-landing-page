@@ -29,3 +29,8 @@ img {
 }
 
 /* Harold's Custom Styles */
+.header {
+  @include mobile {
+    padding: 25px 20px;
+  }
+}
