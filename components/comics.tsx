@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useEffect, useState } from 'react'
 import { createHash } from 'crypto';
 
@@ -8,21 +9,44 @@ export default function Comics() {
     getComics();
   }, []);
 
-  // pu: fea51487254ee228542369281f464255
-  // pr: 15ae1385eb652244d3212c9cf411c411841ede47
   async function getComics() {
     const time = new Date();
-    const pub = 'fea51487254ee228542369281f464255';
-    const pri = '15ae1385eb652244d3212c9cf411c411841ede47';
-    const hash = createHash('md5').update(time + pri + pub).digest('hex');
-    const comics = await fetch(`https://gateway.marvel.com/v1/public/comics?ts=${time}&apikey=${pub}&hash=${hash}`)
+    const pub = process.env.NEXT_PUBLIC_PUBLIC_API_KEY;
+    const pri = process.env.NEXT_PUBLIC_PRIVATE_API_KEY;
+    const hash = createHash('md5')
+      .update(time + pri + pub)
+      .digest('hex');
+    const comics = await fetch(`https://gateway.marvel.com/v1/public/characters/1009368/comics?ts=${time}&apikey=${pub}&hash=${hash}`)
       .then(response => response.json())
-      .then(resp => console.log(resp.data.results));
+      .then(resp => {
+        const data = resp.data.results;
+        const filtered = data.filter(item => {
+          return item.images.length > 0;
+        });
+        setComicList(filtered);
+      });
   }
-  
+  type ComicThumb = {
+    images: {
+      path: string,
+      extension: string,
+    }[],
+  }
   return (
-    <section className="comics">
-      <p>image carousel goes here</p>
+    <section className="comics columns is-multiline">
+      {
+        comicList.map((item: ComicThumb, i: number) => {
+          return (
+            <div key={i} className="column">
+              <Image
+                src={item.images[0].path + '.' + item.images[0].extension}
+                width="100"
+                height="50"
+                alt="Comic thumb" />
+            </div>
+          )
+        })
+      }
     </section>
   )
 }
