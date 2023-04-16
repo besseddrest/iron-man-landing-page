@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Flickity from 'react-flickity-component';
 import { useEffect, useState } from 'react'
 import { createHash } from 'crypto';
 
@@ -32,21 +33,30 @@ export default function Comics() {
       extension: string,
     }[],
   }
+
+  const flickityOptions = {
+    initialIndex: 2
+  }
+  
   return (
-    <section className="comics columns is-multiline">
+    <Flickity
+      className={'carousel'}
+      elementType={'section'}
+      options={flickityOptions}
+      disableImagesLoaded={false}
+    >
       {
         comicList.map((item: ComicThumb, i: number) => {
           return (
-            <div key={i} className="column">
-              <Image
-                src={item.images[0].path + '.' + item.images[0].extension}
-                width="100"
-                height="50"
-                alt="Comic thumb" />
-            </div>
+            <Image
+              key={i}
+              src={item.images[0].path + '.' + item.images[0].extension}
+              width="100"
+              height="50"
+              alt="Comic thumb" />
           )
         })
       }
-    </section>
+    </Flickity>
   )
 }
