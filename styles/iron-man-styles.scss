@@ -99,8 +99,59 @@
 }
 
 .profile {
+  margin-bottom: 125px;
+  padding: 0 80px;
+
   &__header {
     text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+.carousel {
+  position: relative;
+  height: 341px;
+  margin-bottom: 70px;
+  border: 0;
+  outline: none;
+
+  &__item {
+    width: auto;
+    height: 341px;
+    margin: 0 15px;
+  }
+
+  &:hover {
+    .flickity-button {
+      display: block;
+    }
+  }
+
+  .flickity-button {
+    display: none;
+    border: 0;
+
+    &.previous {
+      position: absolute;
+      height: 341px;
+      width: 50px;
+      background: black;
+      opacity: 0.5;
+      content: 'P';
+      top: 0;
+      left: 0;
+    }
+
+    &.next {
+      position: absolute;
+      height: 341px;
+      width: 50px;
+      background: black;
+      opacity: 0.5;
+      content: 'N';
+      top: 0;
+      right: 0;
+    }
   }
 }
 

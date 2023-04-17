@@ -37,7 +37,7 @@ export default function Comics() {
   const flickityOptions = {
     initialIndex: 2,
     pageDots: false,
-
+    wrapAround: true,
   }
 
   return (
@@ -51,10 +51,9 @@ export default function Comics() {
         comicList.map((item: ComicThumb, i: number) => {
           return (
             <img
+              className="carousel__item"
               key={i}
               src={item.images[0].path + '.' + item.images[0].extension}
-              width="227"
-              height="341"
               alt="Comic thumb" />
           )
         })
